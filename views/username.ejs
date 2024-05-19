@@ -1,0 +1,33 @@
+<!-- user_profile.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <!-- Add your CSS stylesheets or links here -->
+</head>
+<body>
+    <h1>User Profile</h1>
+    <div>
+        <h2><%= userProfile.username %>'s Profile</h2>
+        <!-- Display user's profile image -->
+        <img src="<%= userProfile.profileimage %>" alt="Profile Image" width="150">
+        <!-- Display user's bio -->
+        <p>Bio: <%= userProfile.bio %></p>
+        <hr>
+        <h3>Posts:</h3>
+        <ul>
+            <!-- Iterate over user's posts and display them -->
+            <% userProfile.posts.forEach(function(post) { %>
+                <li>
+                    <img src="<%= post.image %>" alt="Post Image" width="200">
+                    <p><%= post.postText %></p>
+                </li>
+            <% }) %>
+        </ul>
+    </div>
+    <!-- Add your additional HTML content here -->
+</body>
+</html>

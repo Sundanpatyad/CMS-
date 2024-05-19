@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="/stylesheets/profile.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+      *{
+        color: rgb(255, 255, 255);
+        
+      }
+      body{
+      color: rgb(255, 255, 255);
+        background-image: linear-gradient(326deg, rgba(236, 236, 236,0.04) 0%, rgba(236, 236, 236,0.04) 6%,rgba(157, 157, 157,0.04) 6%, rgba(157, 157, 157,0.04) 29%,rgba(77, 77, 77,0.04) 29%, rgba(77, 77, 77,0.04) 100%),linear-gradient(164deg, rgba(236, 236, 236,0.04) 0%, rgba(236, 236, 236,0.04) 36%,rgba(157, 157, 157,0.04) 36%, rgba(157, 157, 157,0.04) 61%,rgba(77, 77, 77,0.04) 61%, rgba(77, 77, 77,0.04) 100%),linear-gradient(336deg, rgba(236, 236, 236,0.04) 0%, rgba(236, 236, 236,0.04) 64%,rgba(157, 157, 157,0.04) 64%, rgba(157, 157, 157,0.04) 69%,rgba(77, 77, 77,0.04) 69%, rgba(77, 77, 77,0.04) 100%),linear-gradient(90deg, rgb(0,0,0),rgb(0,0,0));
+      }
+      .container{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+      }
+      .card {
+        background-color: transparent;
+        border-radius: 0px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+        border: none;
+        overflow: hidden;
+        position: relative;
+      }
+  
+      .card-header {
+        top: 10px;
+                display: flex;
+        align-items: center;
+        padding: 5px;
+       position:absolute;
+       
+        
+      }
+      .usernamediv{
+        display: flex;
+        align-items: center;
+      }
+  
+      .user-avatar {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        margin-right: 10px;
+
+      }
+  
+      .username {
+        font-weight: normal;
+      }
+  
+      .post-image {
+        width: 100%;
+        height: auto;
+      }
+  
+      .post-content {
+        
+        padding: 10px;
+      }
+  
+      .post-content p {
+        margin: 0;
+      }
+      .fullname{
+        display: flex;
+        align-items: center;
+        margin-bottom: -15px;   }
+        #editprofile{
+          font-size: 12px;
+          background: rgb(63,94,251);
+background: linear-gradient(55deg, rgba(63, 94, 251, 0.688) 0%, rgba(252, 70, 249, 0.744) 100%);
+color: #eee;
+border:none ;
+border-radius: 50px;
+        }
+        #editprofileres{
+          
+          font-size: 12px;
+          background: rgb(63,94,251);
+background: linear-gradient(55deg, rgba(63, 94, 251, 0.688) 0%, rgba(252, 70, 249, 0.744) 100%);
+color: #eee;
+border:none ;
+border-radius: 50px;
+display: none;
+        }
+        h3{
+          margin-top: -20px;
+          font-size: 23px;
+        }
+
+
+        .container {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(270px, 0fr));
+          gap: 10px;
+        }
+        
+        .card {
+          
+          border: 1px solid #cccccc00;
+          border-radius: 0px;
+          overflow: hidden;
+        }
+        
+        
+        
+        .usernamediv {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
+        
+        .user-avatar {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          margin-right: 10px;
+          object-fit: cover;
+        }
+        
+        .username {
+          font-weight: bold;
+          font-size: 10px;
+        }
+        
+        .deletebtn {
+          
+          background-color: transparent;
+          border: none;
+          cursor: pointer;
+          position: absolute;
+          left: 85%;
+          top: 6%;
+        }
+        
+        .post-image {
+          width: 100%;
+          height: auto;
+        }
+        
+        .post-content {
+          padding: 10px;
+        }
+        small{
+          font-size: 10px;
+          margin-bottom: -20px;
+        }
+        .post-image-container {
+          width: 100%;
+          height: 200px; /* Set a fixed height for uniformity */
+          overflow: hidden;
+        }
+        #image{
+          height: 300px;
+          width: 270px;
+        }
+        
+        .post-image {
+          width: 100%;
+          height: 100%;
+          object-fit: cover; /* Maintain aspect ratio while covering the container */
+        }
+        #footeri>i{
+          font-size: 25px;
+          margin-right: 2%;
+        }
+        .Btn {
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          width: 200px;
+          height: 30px;
+          border: none;
+          padding: 0px 20px;
+          background-color: black;
+          background: rgb(63,94,251);
+background: linear-gradient(55deg, rgba(63,94,251,1) 0%, rgba(252,70,248,1) 100%);
+          color: white;
+          font-weight: 700;
+          cursor: pointer;
+          border-radius: 10px;
+          box-shadow: 5px 5px 0px black;
+          transition-duration: 0.3s;
+        }
+        
+        .svg {
+          width: 13px;
+          position: absolute;
+          right: 0;
+          margin-right: 20px;
+          fill: white;
+          transition-duration: 0.3s;
+        }
+        
+        .Btn:hover {
+          color: transparent;
+        }
+        
+        .Btn:hover svg {
+          right: 43%;
+          margin: 0;
+          padding: 0;
+          border: none;
+          transition-duration: 0.3s;
+        }
+        
+        .Btn:active {
+          transform: translate(3px, 3px);
+          transition-duration: 0.3s;
+          box-shadow: 2px 2px 0px white;
+        }
+        
+        .button1 {
+          --color: #ffffff;
+          font-family: inherit;
+          display: inline-block;
+          width: 5em;
+          height: 2.6em;
+          line-height: 2.5em;
+          margin: 10px 0px;
+          position: relative;
+          overflow: hidden;
+          border: 2px solid var(--color);
+          transition: color .5s;
+          z-index: 1;
+          font-size: 12px;
+          border-radius: 0px;
+          font-weight: 500;
+          color: var(--color);
+         }
+         
+         .button1:before {
+          content: "";
+          position: absolute;
+          z-index: -1;
+          background: white;
+          background: rgb(63,94,251);
+          background: linear-gradient(55deg, rgba(63,94,251,1) 0%, rgba(252,70,248,1) 100%);
+          height: 150px;
+          width: 200px;
+          border-radius: 50%;
+         }
+         
+         .button1:hover {
+          color: #fff;
+         }
+         
+         .button1:before {
+          top: 100%;
+          left: 100%;
+          transition: all .7s;
+         }
+         
+         .button1:hover:before {
+          top: -30px;
+          left: -30px;
+         }
+         
+         .button1:active:before {
+          background: #ffffff;
+          transition: background 0s;
+         }   
+         .card-header{
+          display: flex;
+          justify-content: space-between !important;
+         }
+         
+    </style>
+</head>
+<body>
+  <div class="main">
+    
+  <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+    <div class="container">
+      <a class="navbar-brand text-white" href="#"><strong>NetNest</strong> : By Sundan Sharma</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+
+          
+           <li class="nav-item">
+            <a class="nav-link text-white" href="/feed"><button class="button1"> Home
+            </button></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="/profile"><button class="button1"> Profile
+            </button></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="/logout"><button class="button1"> Logout
+            </button></a>
+          </li> 
+        </ul>
+        
+      </div>
+    </div>
+  </nav>
+  <hr>
+
+
+  
+  <div class="">
+<div class="user-header-wrapper">
+    <div class="user-header-inner">
+      <div class="uh-left">
+        <div class="uh-image">
+          <img class="uh-image-inner" data-bs-toggle="modal" data-bs-target="#exampleModal" src="/images/uploads/<%= userprofile.profileimage %>" alt="" >
+          <div class="gradient">
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog bg-dark">
+                <div class="modal-content bg-dark">
+                  <div class="modal-header bg-dark">
+                    <h1 class="modal-title text-white fs-5" id="exampleModalLabel">Uplaod Profile Pic</h1>
+                    <button type="button" class="btn-close text-light" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <form action="/fileupload" method="post" enctype="multipart/form-data">
+                      <div>
+                        <label for="formFileLg" class="form-label">Add a Image</label>
+                        <input class="form-control form-control-lg" id="formFileLg" type="file" name="image" required>
+                      </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Upload Profile</button>
+                  </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <span><div class="dropdown">
+          <button class="btn  dropdown-toggle" id="editprofileres" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Edit Profile
+          </button>
+          <ul class="dropdown-menu">
+            <li><button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#bioModal">
+             Edit Bio <i class="fa-regular fa-pen-to-square"></i></li>
+            <li><button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
+              Add Profile Picture
+            </button> </li>
+            <li></li>
+          </ul>
+        </div></span> 
+      </div>
+   
+      <div class="uh-right">
+        <div class="user-info">
+          <h3 class="fullname"><%= userprofile.fullname %> <span><div class="dropdown">
+            <button class="btn  dropdown-toggle" id="editprofile" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Edit Profile
+            </button>
+            <ul class="dropdown-menu">
+              <li><button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#bioModal">
+               Edit Bio <i class="fa-regular fa-pen-to-square"></i></li>
+              <li><button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Add Profile Picture
+              </button> </li>
+              <li></li>
+            </ul>
+          </div></span> </h3>
+        </div>
+        <div class=user-links></div>
+        <div class="user-bio">
+          <p class="user-bio-name"><%= userprofile.username %></p><br>
+          <h5>Bio.</h5>
+          <p><%= userprofile.bio %> </p>
+          <!-- <button class="learn-more" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            <span class="circle" aria-hidden="true">
+            <span class="icon arrow"></span>
+            </span>
+            <span class="button-text">Add Post</span>
+          </button> -->
+          <button class="Btn" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            Add Post
+            <svg viewBox="0 0 512 512" class="svg">
+              <path
+                d="M410.3 231l11.3-11.3-33.9-33.9-62.1-62.1L291.7 89.8l-11.3 11.3-22.6 22.6L58.6 322.9c-10.4 10.4-18 23.3-22.2 37.4L1 480.7c-2.5 8.4-.2 17.5 6.1 23.7s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L387.7 253.7 410.3 231zM160 399.4l-9.1 22.7c-4 3.1-8.5 5.4-13.3 6.9L59.4 452l23-78.1c1.4-4.9 3.8-9.4 6.9-13.3l22.7-9.1v32c0 8.8 7.2 16 16 16h32zM362.7 18.7L348.3 33.2 325.7 55.8 314.3 67.1l33.9 33.9 62.1 62.1 33.9 33.9 11.3-11.3 22.6-22.6 14.5-14.5c25-25 25-65.5 0-90.5L453.3 18.7c-25-25-65.5-25-90.5 0zm-47.4 168l-144 144c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l144-144c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z"
+              ></path>
+            </svg>
+          </button>
+          
+         </div>
+          
+          <!-- Modal -->
+          <div class="modal fade" id="bioModal" tabindex="-1" aria-labelledby="bioModalLabel" aria-hidden="true">
+            <div class="modal-dialog bg-dark">
+              <div class="modal-content bg-dark">
+                <div class="modal-header bg-dark">
+                  <h5 class="modal-title bg-dark" id="bioModalLabel">Edit Bio</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <form action="/uploadbio" method="post">
+                    <div class="mb-3">
+                      <label for="bio" class="form-label">Bio:</label>
+                      <textarea class="form-control bg-dark text-white" id="bio" name="userbio" rows="4" placeholder="Add a Bio"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Save Profile</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+   <!-- <div class="container">
+    <form action="/uploadbio" method="post">
+      <div class="form-group">
+        <label for="bio">Bio:</label>
+        <textarea class="form-control" id="bio" name="userbio" rows="4" placeholder="Tell us about yourself"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Save Profile</button>
+    </form>
+  </div> -->
+
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog bg-dark">
+    <div class="modal-content bg-dark">
+      <div class="modal-header bg-dark">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Create a Post</h1>
+        <button type="button" class="btn-close  text-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          <form action="/upload" method="post" enctype="multipart/form-data">
+              <div>
+                  <label for="formFileLg" class="form-label">Large file input example</label>
+                  <input class="form-control bg-dark form-control-lg" id="formFileLg" type="file" name="file">
+                </div>
+                <div class="form-floating">
+                  <input type="text" class="form-control bg-dark my-3 text-white" id="floatingtext" name="filecaption" placeholder="Caption">
+                  <label for="floatingtext ">Caption</label>
+                </div>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" value="upload" class="btn btn-primary">Create Post</button>
+      </form>
+      </div>
+    </div>
+  </div>
+</div>   
+        </div>
+      </div>
+    </div>
+</div><hr>
+
+<div class="container">
+  <% userprofile.posts.reverse().forEach(function(posts){ %>
+    <div class="card">
+      <div class="card-header">
+        <div class="usernamediv">
+          <img class="user-avatar" src="/images/uploads/<%= userprofile.profileimage %>" alt="User Avatar">
+          <div class="username"><%= userprofile.username %></div>
+        </div>
+       
+      </div>
+      <form action="/delete" method="post">
+        <input type="hidden" value="<%= posts._id %>" name="_id">
+        <input type="hidden" value="<%= posts.image %>" name="imgname">
+        <button type="submit" class="deletebtn"><i class="fa-solid fa-trash"></i></button>
+      </form>
+     <div id="image"> <img class="post-image" src="/images/uploads/<%= posts.image %>" alt="Post Image"></div>
+      <div class="post-content">
+        <p class="posttext">
+          <span id="postText"><%= posts.postText %></span>
+      </p>
+      
+      </div>
+    </div>
+  <% }) %>
+</div>
+
+</div><hr>
+<div class="row">
+  <div class="col-5 offset-1"><p>@Created by <strong>Sundan Sharma</strong> 😉</p></div>
+  <div class="col-6 text-center " id="footeri"> <i class="fa-brands fa-facebook"></i>
+    <i class="fa-brands fa-linkedin"></i>
+    <i class="fa-brands fa-github"></i>
+    <i class="fa-brands fa-twitter"></i>
+    <i class="fa-brands fa-discord"></i>
+    <i class="fa-brands fa-dropbox"></i></div>
+</div>
+
+
+
+<script src="/javascripts/readmore.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+</body>
+</html>

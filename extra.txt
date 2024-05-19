@@ -1,0 +1,41 @@
+var express = require('express');
+var router = express.Router();
+const user =require("./users");
+const posts =require("./posts");
+
+
+router.get('/',async function(req, res, next) {
+  let userdata = await user
+  .findOne({_id:"65e74b38bca600491d0babb5"})
+  .populate("posts");
+
+  res.send(userdata);
+});
+
+router.get('/user',  async function(req, res, next) {
+
+ let createuser = await user.create({
+  username:"sundan",
+password: "sundan",
+posts: [],
+
+email:"sundan@mail.com" ,
+fullname: "sundan sharma"
+});
+res.send(createuser);
+});
+
+router.get('/posts', async function(req, res, next) {
+ let postcreated = await posts.create({
+    postText: "Hello I am Sundan Sharma Patyad",
+    user:"65e74b38bca600491d0babb5",
+  });
+   let userpost = await user.findOne({_id: "65e74b38bca600491d0babb5"});
+
+  userpost.posts.push(postcreated._id);
+  await userpost.save();
+  res.send("Done");
+ 
+});
+
+module.exports = router;
